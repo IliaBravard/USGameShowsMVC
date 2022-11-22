@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert New Contact</title>
+</head>
+
+<body>
+	<form th:action="@{/addGameShow}" method=POST th:object="${newGameShow}">
+		Show Name: <input name="showName" size="20"> <br />
+		Episode Duration: <input type="number" name="duration" size="10"><br />
+		Maximum Prize: <input type="number" name="maxPrize"><br />
+		Is It Still Running: <input type="text" name="running"><br />
+		Host's First Name: <input type="text" name="fName" size="20" th:field="*{gameHost.firstName}"> <br />
+		Host's Last Name: <input type="text" name="lName" size="20" th:field="*{gameHost.lastName}"> <br />
+		<input type="submit" value="Add the Record" />
+	</form>
+</body>
+
+</html>

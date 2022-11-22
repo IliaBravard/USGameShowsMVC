@@ -3,7 +3,7 @@ package shows.beans; // The package where this bean class is located at
 /**
  * @author Ilia Bravard - igbravard
  * CIS175 - Fall 2022
- * Oct 20, 2022
+ * Nov 22, 2022
  */
 
 // Including the needed import

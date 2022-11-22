@@ -8,16 +8,37 @@
 <body>
 	<form>
 		<table>
-			<tr th:each="thisShow : ${shows}">
-				<td th:text="${thisShow.id}" />
-				<td th:text="${thisShow.showName}" />
-				<td th:text="${thisShow.episodeDuration}" />
-				<td th:text="${thisShow.isRunning}" />
-				<td th:text="${thisShow.gameHost}" />
-			</tr>
+			<thread>
+				<tr>
+					<th>Game ID</th>
+					<th>Show Name</th>
+					<th>Episode Duration</th>
+					<th>Maximum Prize</th>
+					<th>Is it Still Runnung</th>
+					<th>Game Host's First Name</th>
+					<th>Game Host's Last Name</th>
+					<th>Actions</th>
+				</tr>
+			</thread>
+			<tbody>
+				<tr th:each="show: ${shows}">
+					<td th:text=${show.id}>Game ID</td>
+					<td th:text=${show.showName}>Show Name</td>
+					<td th:text=${show.episodeDuration}>Episode Duration</td>
+					<td th:text=${show.maxPrize}>Maximum Prize</td>
+					<td th:text=${show.isRunning}>Is it Still Runnung</td>
+					<td th:text=${show.gameHost.firstName}>Game Host's First Name</td>
+					<td th:text=${show.gameHost.lastName}>Game Host's Last Name</td>
+					<td>
+						<a th:href="@{'/edit/' + ${show.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/delete/' + ${show.id}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</form>
-	<a href="../addShowRecord">Add a new contact</a>
+	<a th:href="addGameShow">Add a New Game Show</a>
 </body>
 
 </html>

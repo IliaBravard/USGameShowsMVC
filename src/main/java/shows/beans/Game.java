@@ -3,7 +3,7 @@ package shows.beans; // The package where this bean class is located at
 /**
  * @author Ilia Bravard - igbravard
  * CIS175 - Fall 2022
- * Oct 20, 2022
+ * Nov 22, 2022
  */
 
 // Including the needed imports
@@ -28,19 +28,19 @@ public class Game {
 	@GeneratedValue
 	@Column(name = "SHOW_ID")
 	private long id; // The show's id number
-	
+
 	@Column(name = "SHOW_NAME")
 	private String showName; // The name of the show
-	
+
 	@Column(name = "AVG_EPISODE_TIME")
 	private int episodeDuration; // The mean duration of each episode (in minutes)
-	
+
 	@Column(name = "MAX_PRIZE")
 	private double maxPrize; // The maximum prize that can be won
-	
+
 	@Column(name = "STILL_RUNNING")
 	private boolean isRunning; // Whether the show is still running or not
-	
+
 	// Autowiring the bean dependency by using the type of the field
 	@Autowired
 	@Column(name = "HOST")
@@ -53,20 +53,24 @@ public class Game {
 	}
 
 	/**
-	 * This is the nondefault constrcutor that sets all fields of this class/entity.
+	 * This is the nondefault constructor that sets all fields of this class/entity.
 	 * 
 	 * @param name     - the game show's name
 	 * @param duration - the average episode duration of each episode (in minutes)
 	 * @param maxPrize - the maximum prize that can be won
-	 * @param running - whether the show is still running or nott
+	 * @param running  - whether the show is still running or not
+	 * @param fName    - the host's first name
+	 * @param lName    - the host's last name
 	 */
-	public Game(String name, int duration, double maxPrize, boolean running) {
+	public Game(String name, int duration, double maxPrize, boolean running, String fName, String lName) {
 		setShowName(name);
 		setEpisodeDuration(duration);
 		setMaxPrize(maxPrize);
+		gameHost.setFirstName(fName);
+		gameHost.setLastName(lName);
 	}
 
-	// Generating the needed accessort and mutators for this class
+	// Generating the needed accessors and mutators for this class
 	public long getId() {
 		return id;
 	}
@@ -123,7 +127,7 @@ public class Game {
 	 */
 	@Override
 	public String toString() {
-		return "Game --> [ID: " + id + "| Name:  " + showName + "| Episode Duration: " + episodeDuration + "| Max Prize: $"
-				+ maxPrize + "| Is It On Today: " + isRunning + "\n          " + gameHost + "]";
+		return "Game --> [ID: " + id + "| Name:  " + showName + "| Episode Duration: " + episodeDuration
+				+ "| Max Prize: $" + maxPrize + "| Is It On Today: " + isRunning + "\n          " + gameHost + "]";
 	}
 }

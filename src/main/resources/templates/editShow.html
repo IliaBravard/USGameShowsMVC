@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Edit a Game Show</title>
+</head>
+
+<body>
+	<h1>Edit a Game Show</h1>
+
+	<form th:action="@{/saveGameShow}" method=POST th:object="${show}">
+		<table>
+			<tr>
+				<td>Show ID#</td>
+				<td><input type="text" th:field="*{id}" readonly></td>
+			</tr>
+
+			<tr>
+				<td>Game Show Name</td>
+				<td><input type="text" th:field="*{showName}"></td>
+			</tr>
+
+			<tr>
+				<td>Episode Duration</td>
+				<td><input type="text" th:field="*{episodeDuration}"></td>
+			</tr>
+
+			<tr>
+				<td>Maximum Prize</td>
+				<td><input type="text" th:field="*{maxPrize}"></td>
+			</tr>
+
+			<tr>
+				<td>Game Host's First Name</td>
+				<td><input type="text" th:field="*{gameHost.firstName}"></td>
+			</tr>
+
+			<tr>
+				<td>Game Host's Last Name</td>
+				<td><input type="text" th:field="*{gameHost.lastName}"></td>
+			</tr>
+
+			<tr>
+				<td><button type="submit">Save the Game Show Record</td>
+			</tr>
+</body>
+
+</html>
